@@ -1,0 +1,8 @@
+---
+
+- name: Ping all hosts defind under hostgroup rpi
+  hosts: rpi
+  gather_facts: false
+  tasks:
+   - name: ping hosts
+     ansible.builtin.ping:

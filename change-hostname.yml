@@ -1,13 +1,13 @@
 ---
 
-- name: Changing hostname(s)
+- name: Changing hostname for host rpi2b
   connection: ansible.netcommon.network_cli
   gather_facts: false
-  hosts: all
+  hosts: rpi-2b
   tasks:
-- name: Set the hostname
-  ansible.builtin.hostname:
-    name: raspberry
+  - name: Set the hostname
+    ansible.builtin.hostname:
+     name: raspberry2b
 
 # if the above doesn't work, use below
 #- name: Set a hostname specifying strategy
