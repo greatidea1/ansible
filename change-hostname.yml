@@ -1,0 +1,16 @@
+---
+
+- name: Changing hostname(s)
+  connection: ansible.netcommon.network_cli
+  gather_facts: false
+  hosts: all
+  tasks:
+- name: Set the hostname
+  ansible.builtin.hostname:
+    name: raspberry
+
+# if the above doesn't work, use below
+#- name: Set a hostname specifying strategy
+#  ansible.builtin.hostname:
+#    name: web01
+#    strategy: systemd

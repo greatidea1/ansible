@@ -1,0 +1,6 @@
+---
+
+- name: Gathering facts of hostgroup rpi defined under /etc/ansible/hosts
+  hosts: rpi
+  connection: ansible.netcommon.network_cli
+  gather_facts: true

@@ -1,0 +1,10 @@
+---
+
+- name: Reboot servers in hostgroup rpi defined under /etc/ansible/hosts
+  hosts: rpi
+  gather_facts: false
+  become: true
+
+  tasks:
+   - name: Reload servers
+     ansible.builtin.reboot: 

@@ -1,0 +1,5 @@
+  - hosts: rpi
+    gather_facts: false
+    tasks:
+      - name: run echo command
+        command: /usr/bin/pwd > /home/pi/dir-list.txt

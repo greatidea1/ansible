@@ -1,0 +1,9 @@
+---
+
+- name: Installing Apache for hostgroup rpi defined under /etc/ansible/hosts
+  hosts: rpi
+  gather_facts: false
+
+  tasks:
+   - name: Ensure apache is present
+     ansible.builtin.apt: name=apache2 state=latest
