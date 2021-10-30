@@ -1,0 +1,10 @@
+#ping hosts in hostgroup rpi
+ansible rpi -m ping
+
+#systemctl service control for example package apache2 for hostgroup rpi
+ansible rpi -b -a "systemctl status apache2"
+ansible rpi -b -a "systemctl stop apache2"
+ansible rpi -b -a "systemctl start apache2"
+
+#see environment variables of hostgroup rpi
+ansible rpi -b -a "env"
