@@ -1,0 +1,8 @@
+--- # A hello-world kinda playbook
+
+- 
+  hosts: vm
+  user: ansible
+  become: yes
+  connection: ssh
+  gather_facts: yes

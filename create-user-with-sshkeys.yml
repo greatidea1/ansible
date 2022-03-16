@@ -1,0 +1,13 @@
+---  
+# create new user shireesh with password srs123 generated from mkpasswd linux cmd.
+# important to set modules password and shell otherwise they won't be created and couldn't login and default to /bin/sh if only password is set
+- hosts: localhost
+  name: "Create a 2048-bit SSH key for user jsmith in ~jsmith/.ssh/id_rsa"
+  tasks: 
+    - name: Add a user while generating new ssh keys
+      ansible.builtin.user: 
+       generate_ssh_key: true
+       name: shireesh
+       password: M0.7lSqmFD9iY
+       shell: /bin/bash
+       ssh_key_file: .ssh/id_rsa

@@ -1,0 +1,11 @@
+---
+-
+
+   name: Print date and uptime of hosts defind in hosts group
+   hosts: localhost
+   tasks:
+           - name: Execute the date cmd
+             command: date
+
+           - name: Execute the uptime cmd
+             command: uptime

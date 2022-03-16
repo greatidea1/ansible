@@ -1,0 +1,8 @@
+--- 
+- hosts: rpi
+  become: yes
+  user: pi
+  connection: ssh
+  gather_facts: no
+  
+

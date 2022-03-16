@@ -1,10 +1,37 @@
+#Ansible only allows 1 adhoc command to be run with the argument '-a'. It is not possible to run more than one command
+#idempotency is present in modules (-m)only. No idempotency in adhoc cmds
+
 #ping hosts in hostgroup rpi
 ansible rpi -m ping
+
+#retrieve all the ansible-known information from hosts defined in hostgroup rpi. 
+#setup is the module responsible for idempotency and checks the current state/status
+ansible rpi -m setup
 
 #systemctl service control for example package apache2 for hostgroup rpi
 ansible rpi -b -a "systemctl status apache2"
 ansible rpi -b -a "systemctl stop apache2"
 ansible rpi -b -a "systemctl start apache2"
 
+#this also works
+ansible rpi -a "sudo systemctl status apache2"
+
+#to create user sunil
+ansible rpi -b -m user -a "name=sunil"
+
+#to delete user sunil
+ansible rpi -b -m user -a "name=sunil state=absent"
 #see environment variables of hostgroup rpi
 ansible rpi -b -a "env"
+
+#run 'which' cmd to find the location of apache2 binary file
+ansible rpi -a "which apache2"
+
+#to copy file from source path on server to client(s) defined in hostgroup rpi to the destination path in hosts
+ansible rpi -m copy -a "src=adhoc-and-module-cmds.txt dest=/home/pi"
+
+# remove apt packages
+# 1a) to remove package apache2
+ansible rpi -b -m apt -a "pkg=apache2 state=absent"
+# 1b) to install package apache2
+ansible rpi -b -m apt -a "pkg=apache2 state=present"
